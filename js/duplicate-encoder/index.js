@@ -8,9 +8,5 @@ export const duplicateEncode = word => {
         frequencies[char] = frequencies[char] ? frequencies[char] + 1 : 1;
     }
 
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = frequencies[arr[i]] > 1 ? ")" : "(";
-    }
-
-    return arr.join("");
+    return arr.map(char => (frequencies[char] > 1 ? ")" : "(")).join("");
 };
