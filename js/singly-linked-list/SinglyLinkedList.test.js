@@ -76,3 +76,18 @@ test("get", () => {
     expect(list.get(array.length)).toBeUndefined();
     expect(list.get(-1)).toBeUndefined();
 });
+
+test("set", () => {
+    const { list, array } = createTestSuite();
+
+    expect(list.set(-1)).toBeFalsy();
+    expect(list.set(array.length)).toBeFalsy();
+
+    const [index, value] = [1, -5353];
+    array[index] = value;
+    expect(list.set(index, value)).toBeTruthy();
+
+    for (let i = 0; i < array.length; i++) {
+        expect(list.get(i).value).toEqual(array[i]);
+    }
+});
