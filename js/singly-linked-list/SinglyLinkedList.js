@@ -49,4 +49,20 @@ export class SinglyLinkedList {
 
         return currentTail.value;
     }
+
+    shift() {
+        if (this.length === 0) {
+            return undefined;
+        }
+
+        const currentHead = this.head;
+        this.head = this.head.next;
+        this.length--;
+
+        if (this.length === 0) {
+            this.tail = null;
+        }
+
+        return currentHead.value;
+    }
 }
