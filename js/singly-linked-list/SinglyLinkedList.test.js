@@ -65,3 +65,14 @@ test("unshift", () => {
 
     expect(newList).toEqual(list);
 });
+
+test("get", () => {
+    const { list, array } = createTestSuite();
+
+    for (let i = 0; i < array.length; i++) {
+        expect(list.get(i).value).toEqual(array[i]);
+    }
+
+    expect(list.get(array.length)).toBeUndefined();
+    expect(list.get(-1)).toBeUndefined();
+});
