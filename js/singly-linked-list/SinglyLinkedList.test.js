@@ -126,3 +126,29 @@ test("remove", () => {
 
     expect(list.length).toEqual(array.length);
 });
+
+test("reverse", () => {
+    const emptyList1 = new SinglyLinkedList();
+    const emptyList2 = new SinglyLinkedList();
+    emptyList1.reverse();
+
+    expect(emptyList1).toEqual(emptyList2);
+
+    const oneElementList1 = new SinglyLinkedList();
+    oneElementList1.push(5);
+    const oneElementList2 = new SinglyLinkedList();
+    oneElementList2.push(5);
+    oneElementList1.reverse();
+
+    expect(oneElementList1).toEqual(oneElementList2);
+
+    const { list, array } = createTestSuite();
+    array.reverse();
+    list.reverse();
+
+    for (let i = 0; i < array.length; i++) {
+        expect(list.get(i).value).toEqual(array[i]);
+    }
+
+    expect(list.length).toEqual(array.length);
+});
