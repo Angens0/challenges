@@ -80,8 +80,8 @@ test("get", () => {
 test("set", () => {
     const { list, array } = createTestSuite();
 
-    expect(list.set(-1)).toBeFalsy();
-    expect(list.set(array.length)).toBeFalsy();
+    expect(list.set(-1, 5)).toBeFalsy();
+    expect(list.set(array.length, 5)).toBeFalsy();
 
     const [index, value] = [1, -5353];
     array[index] = value;
@@ -90,4 +90,23 @@ test("set", () => {
     for (let i = 0; i < array.length; i++) {
         expect(list.get(i).value).toEqual(array[i]);
     }
+
+    expect(list.length).toEqual(array.length);
+});
+
+test("insert", () => {
+    const { list, array } = createTestSuite();
+
+    expect(list.insert(-1, 5)).toBeFalsy();
+    expect(list.insert(array.length + 1, 5)).toBeFalsy();
+
+    const [index, value] = [1, -5353];
+    array.splice(index, 0, value);
+    expect(list.insert(index, value)).toBeTruthy();
+
+    for (let i = 0; i < array.length; i++) {
+        expect(list.get(i).value).toEqual(array[i]);
+    }
+
+    expect(list.length).toEqual(array.length);
 });
