@@ -53,3 +53,15 @@ test("shift", () => {
     expect(list.head).toBeNull();
     expect(list.shift()).toBeUndefined();
 });
+
+test("unshift", () => {
+    const { list, array } = createTestSuite();
+    const newList = new SinglyLinkedList();
+
+    for (let i = array.length - 1; i >= 0; i--) {
+        newList.unshift(array[i]);
+        expect(newList.head.value).toEqual(array[i]);
+    }
+
+    expect(newList).toEqual(list);
+});
