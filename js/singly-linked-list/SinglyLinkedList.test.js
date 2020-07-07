@@ -110,3 +110,19 @@ test("insert", () => {
 
     expect(list.length).toEqual(array.length);
 });
+
+test("remove", () => {
+    const { list, array } = createTestSuite();
+
+    expect(list.remove(-1)).toBeUndefined();
+    expect(list.remove(array.length)).toBeUndefined();
+
+    const index = 2;
+    expect(list.remove(index)).toEqual(array.splice(index, 1)[0]);
+
+    for (let i = 0; i < array.length; i++) {
+        expect(list.get(i).value).toEqual(array[i]);
+    }
+
+    expect(list.length).toEqual(array.length);
+});
