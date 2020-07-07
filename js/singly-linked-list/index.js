@@ -11,3 +11,19 @@ console.log(list);
 
 list.push(25);
 console.log(list);
+
+let popped = list.pop();
+console.log("Popped value:\n", popped);
+console.log(list);
+
+popped = list.pop();
+console.log("Popped value:\n", popped);
+console.log(list);
+
+popped = list.pop();
+console.log("Popped value:\n", popped);
+console.log(list);
+
+popped = list.pop();
+console.log("Popped value:\n", popped);
+console.log(list);
