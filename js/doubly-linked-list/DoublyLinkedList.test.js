@@ -48,3 +48,19 @@ test("pop", () => {
     expect(list.head).toBeNull();
     expect(list.tail).toBeNull();
 });
+
+test("shift", () => {
+    const { array, list } = createTestSuite();
+
+    do {
+        expect(list.head.prev).toBeNull();
+        expect(list.shift()).toEqual(array.shift());
+        expect(list.length).toEqual(array.length);
+    } while (array.length);
+
+    expect(list.shift()).toBeUndefined();
+    expect(list.length).toEqual(0);
+
+    expect(list.head).toBeNull();
+    expect(list.tail).toBeNull();
+});
