@@ -98,4 +98,14 @@ export class DoublyLinkedList {
 
         return current;
     }
+
+    set(index, value) {
+        const node = this.get(index);
+        if (!node) {
+            return false;
+        }
+
+        node.value = value;
+        return true;
+    }
 }
