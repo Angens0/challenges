@@ -61,4 +61,18 @@ export class DoublyLinkedList {
         first.next = null;
         return first.value;
     }
+
+    unshift(value) {
+        const node = new Node(value);
+
+        if (this.length === 0) {
+            this.tail = node;
+        } else {
+            this.head.prev = node;
+            node.next = this.head;
+        }
+
+        this.head = node;
+        this.length++;
+    }
 }
