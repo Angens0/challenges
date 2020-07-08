@@ -75,4 +75,27 @@ export class DoublyLinkedList {
         this.head = node;
         this.length++;
     }
+
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
+
+        let current;
+        // traverse from head to tail if index in first half of the list
+        // traverse from tail to head otherwise
+        if (index < this.length / 2) {
+            current = this.head;
+            for (let i = 0; index > i; i++) {
+                current = current.next;
+            }
+        } else {
+            current = this.tail;
+            for (let i = this.length - 1; index < i; i--) {
+                current = current.prev;
+            }
+        }
+
+        return current;
+    }
 }
