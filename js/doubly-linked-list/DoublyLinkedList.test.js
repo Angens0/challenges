@@ -64,3 +64,14 @@ test("shift", () => {
     expect(list.head).toBeNull();
     expect(list.tail).toBeNull();
 });
+
+test("unshift", () => {
+    const { array, list: pushedList } = createTestSuite();
+
+    const unshiftedList = new DoublyLinkedList();
+    for (let i = array.length - 1; i >= 0; i--) {
+        unshiftedList.unshift(array[i]);
+    }
+
+    expect(unshiftedList).toEqual(pushedList);
+});
