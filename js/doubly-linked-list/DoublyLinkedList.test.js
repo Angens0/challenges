@@ -83,3 +83,18 @@ test("get", () => {
         expect(list.get(i)?.value).toEqual(array[i]);
     }
 });
+
+test("set", () => {
+    const { array, list } = createTestSuite();
+
+    expect(list.set(-1, 55)).toBeFalsy();
+    expect(list.set(array.length, 55)).toBeFalsy();
+
+    const [index, value] = [2, -77];
+    array[index] = value;
+    expect(list.set(index, value)).toBeTruthy();
+
+    for (let i = -1; i <= array.length; i++) {
+        expect(list.get(i)?.value).toEqual(array[i]);
+    }
+});
