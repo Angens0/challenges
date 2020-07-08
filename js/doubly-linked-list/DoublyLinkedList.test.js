@@ -75,3 +75,11 @@ test("unshift", () => {
 
     expect(unshiftedList).toEqual(pushedList);
 });
+
+test("get", () => {
+    const { array, list } = createTestSuite();
+
+    for (let i = -1; i <= array.length; i++) {
+        expect(list.get(i)?.value).toEqual(array[i]);
+    }
+});
