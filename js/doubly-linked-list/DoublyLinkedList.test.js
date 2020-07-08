@@ -32,3 +32,19 @@ test("push", () => {
         currentNode = currentNode.prev;
     }
 });
+
+test("pop", () => {
+    const { array, list } = createTestSuite();
+
+    do {
+        expect(list.tail.next).toBeNull();
+        expect(list.pop()).toEqual(array.pop());
+        expect(list.length).toEqual(array.length);
+    } while (array.length);
+
+    expect(list.pop()).toBeUndefined();
+    expect(list.length).toEqual(0);
+
+    expect(list.head).toBeNull();
+    expect(list.tail).toBeNull();
+});
