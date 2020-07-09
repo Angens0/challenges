@@ -98,3 +98,23 @@ test("set", () => {
         expect(list.get(i)?.value).toEqual(array[i]);
     }
 });
+
+test("insert", () => {
+    const value = -99;
+    const {
+        array: { length },
+    } = createTestSuite();
+
+    for (let i = 0; i <= length; i++) {
+        const { array, list } = createTestSuite();
+        array.splice(i, 0, value);
+
+        const pushedList = new DoublyLinkedList();
+        for (const el of array) {
+            pushedList.push(el);
+        }
+
+        expect(list.insert(i, value)).toBeTruthy();
+        expect(list).toEqual(pushedList);
+    }
+});
