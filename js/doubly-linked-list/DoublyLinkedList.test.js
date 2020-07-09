@@ -118,3 +118,21 @@ test("insert", () => {
         expect(list).toEqual(pushedList);
     }
 });
+
+test("remove", () => {
+    const {
+        array: { length },
+    } = createTestSuite();
+
+    for (let i = 0; i < length; i++) {
+        const { array, list } = createTestSuite();
+        expect(list.remove(i)).toEqual(array.splice(i, 1)[0]);
+
+        const pushedList = new DoublyLinkedList();
+        for (const el of array) {
+            pushedList.push(el);
+        }
+
+        expect(list).toEqual(pushedList);
+    }
+});
