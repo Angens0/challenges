@@ -136,3 +136,17 @@ test("remove", () => {
         expect(list).toEqual(pushedList);
     }
 });
+
+test("reverse", () => {
+    const { array, list } = createTestSuite();
+
+    list.reverse();
+    array.reverse();
+
+    const pushedList = new DoublyLinkedList();
+    for (const el of array) {
+        pushedList.push(el);
+    }
+
+    expect(list).toEqual(pushedList);
+});
