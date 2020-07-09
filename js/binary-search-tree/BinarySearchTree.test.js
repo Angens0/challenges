@@ -30,3 +30,21 @@ test("insert", () => {
     expect(tree.root.right.right.left).toBeNull();
     expect(tree.root.right.right.right).toBeNull();
 });
+
+test("find", () => {
+    const tree = new BinarySearchTree();
+    const array1 = [10, 5, 2, 13, 16, 7, 11, 7];
+    const array2 = [1, 6, 8, 12, -55, 0, 25];
+
+    for (const el of array1) {
+        tree.insert(el);
+    }
+
+    for (const el of array1) {
+        expect(tree.find(el).value).toEqual(el);
+    }
+
+    for (const el of array2) {
+        expect(tree.find(el)).toBeUndefined();
+    }
+});
