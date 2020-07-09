@@ -161,4 +161,15 @@ export class DoublyLinkedList {
         currentNode.prev = null;
         return currentNode.value;
     }
+
+    reverse() {
+        let current = this.head;
+        while (current) {
+            [current.prev, current.next] = [current.next, current.prev];
+            current = current.prev;
+        }
+
+        [this.head, this.tail] = [this.tail, this.head];
+        return this;
+    }
 }
