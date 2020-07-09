@@ -26,4 +26,20 @@ export class BinarySearchTree {
             current = current[side];
         }
     }
+
+    find(value) {
+        if (!this.root) return undefined;
+
+        let current = this.root;
+        while (true) {
+            if (value == current.value) return current;
+            const side = value < current.value ? "left" : "right";
+
+            if (!current[side]) {
+                return undefined;
+            }
+
+            current = current[side];
+        }
+    }
 }
