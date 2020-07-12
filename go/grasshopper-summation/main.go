@@ -6,6 +6,5 @@ func main() {
 }
 
 func summation(n int) int {
-	f := float32(n)
-	return int((1 + f) / 2 * f)
+	return n * (1 + n) / 2
 }
