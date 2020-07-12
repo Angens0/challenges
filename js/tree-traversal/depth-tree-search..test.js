@@ -1,0 +1,20 @@
+import { depthFirst, PRE_ORDER } from "./depth-tree-search";
+import { BinarySearchTree } from "../binary-search-tree/BinarySearchTree";
+
+test("PreOrder", () => {
+    const array1 = [-5, 12, 60, 0, -3, 124, -6543];
+    const tree1 = new BinarySearchTree();
+
+    for (const el of array1) {
+        tree1.insert(el);
+    }
+
+    const array2 = depthFirst(tree1, PRE_ORDER);
+    expect(array2.length).toEqual(array1.length);
+    const tree2 = new BinarySearchTree();
+    for (const el of array2) {
+        tree2.insert(el);
+    }
+
+    expect(tree2).toEqual(tree1);
+});
